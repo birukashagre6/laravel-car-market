@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'home page')
+@section('title', 'Home Page')
 
 @section('content')
         <!-- Home Slider -->
