@@ -1,12 +1,19 @@
-@extends('layouts.app')
 
-@section('title', 'Home Page')
-
-@section('content')
-
-{{-- <x-card />
-<x-card />
-<x-card /> --}}
+<x-app-layout title="Home Page">
+  @php
+  $color='red';
+  $bgColor='blue';
+@endphp
+<x-card :$color :$bgColor  class='card-rounded' >
+{{-- <x-card :color='$color' :bgColor='$bgColor' >
+ --}}  
+ <x-slot  name="title" class='card-header-blue'>card title 1 </x-slot>
+  card content 1
+  <x-slot name="footer">card footer 1 </x-slot>
+</x-card>
+<x-test-component class='card'>
+  biruk are you fine?
+</x-test-component>
 
  <!-- #region -->
         <!-- Home Slider -->
@@ -95,7 +102,7 @@
                 <span class="sr-only">Next</span>
               </button>
             </div>
-          </section>
+       </section>
           <!--/ Home Slider -->
       
           <main>
@@ -666,10 +673,11 @@
             </section>
             <!--/ New Cars -->
           </main>
-           @section('footerlinks')
-           @parent
-             <a href="#">link3</a>
-              <a href="#">link4</a>
-           @endsection
-@endsection
+          <x-slot name='footerlinks'>
+            <a href="#">link3</a>
+            <a href="#">link4</a>
+          </x-slot>
+
+</x-app-layout>
+
 
